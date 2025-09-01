@@ -1,0 +1,16 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.2.2/schema.json",
+  "extends": ["ultracite"],
+  "javascript": {
+    "formatter": {
+      "semicolons": "asNeeded"
+    }
+  },
+  "linter": {
+    "rules": {
+      "performance": {
+        "noImgElement": "off"
+      }
+    }
+  }
+}
