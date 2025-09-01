@@ -20,7 +20,7 @@ export function ConversationHeader() {
   }, [location.pathname])
 
   return (
-    <header className="relative mt-[15.5px] flex h-14 w-full items-center p-4">
+    <header className="relative mt-[62px] flex h-14 w-full items-center p-4">
       <div className="relative flex h-[36px] items-center rounded-full bg-zinc-900 p-1">
         <motion.div
           animate={{
