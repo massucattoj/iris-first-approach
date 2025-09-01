@@ -23,6 +23,18 @@ It’s a super interesting project (honestly, nerd-level exciting 😅), and I�
 
 As for next steps listed bellow, I’d that for sure the Step 0 is definitely getting up to speed with the animation library you’re using — gotta make sure the fuzzy and iris magic keeps running as smooth as butter .
 
+**Part of the process:**
+
+- Start a vite project and setting up Tailwind and Biome for lint.
+- Used biome since it drastically cuts down setup and speeds up lint/format tasks.
+- Download all the svg icons.
+- Add the `vite-plugin-svgr` library, so we can work with the svgs as react components. No need to have both svg (active/deactived) just one and control the styles.
+- Build the bottom navigation with a footer and tab component.
+- Add `react-router-dom` for clean navigation.
+- Add `framer-motion` for some animations and smooth transitions.
+- No need for now a library for state management but later with some other features, the idea is to using zustand or redux toolkit.
+- Split some components into smaller ones to keep clean code and single responsability approach, there is more places to do it but will need some time, but same idea.
+
 - **Time Investment:** 3 hours focused development
 - **Focus Areas:** Architecture, accessibility, mobile UX
 - **Key Decisions:** Modern stack, TypeScript, mobile-first approach
@@ -115,5 +127,6 @@ src/
 
 **P.S.**
 
+- Those expectations are without AI assistant, so the time could decrease a little
 - Would definitely add some tests (unit/integration/e2e) if I had more time
 - Any commits after Sunday, August 31st are just me playing around with the code 😊
