@@ -14,8 +14,8 @@ export function Footer() {
     switch (location.pathname) {
       case '/insights':
         return 'Insights'
-      case '/text':
-        return 'Chat'
+      case '/settings':
+        return 'Settings'
       case '/':
         return 'Iris'
       case '/explore':
@@ -32,7 +32,7 @@ export function Footer() {
   return (
     <nav
       aria-label="Main navigation"
-      className="fixed inset-x-0 bottom-0 h-[88px] border-teal-600 border-t bg-black/80 backdrop-blur-md"
+      className="fixed inset-x-0 bottom-0 h-[88px] border-teal-600 border-t bg-[var(--color-nav-background)] backdrop-blur-md"
       style={{ paddingBottom: 'max(env(safe-area-inset-bottom), 12px)' }}
     >
       <div className="mx-auto w-full max-w-[393px]">
@@ -48,10 +48,10 @@ export function Footer() {
             onClick={() => handleTabClick('/insights')}
           />
           <Tab
-            active={getActiveTab() === 'Chat'}
+            active={getActiveTab() === 'Settings'}
             icon={<ChatIcon aria-hidden="true" className="h-6 w-6" />}
-            label="Chat"
-            onClick={() => handleTabClick('/text')}
+            label="Settings"
+            onClick={() => handleTabClick('/settings')}
           />
           <Tab
             active={getActiveTab() === 'Iris'}
