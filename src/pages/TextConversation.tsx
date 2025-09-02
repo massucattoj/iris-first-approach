@@ -7,7 +7,7 @@ const TEXTAREA_MAX_HEIGHT = 120
 
 export function TextConversation() {
   return (
-    <div className="flex min-h-dvh flex-col">
+    <div className="flex min-h-dvh flex-col bg-[var(--color-background)]">
       <ConversationHeader />
 
       <motion.main
@@ -20,10 +20,12 @@ export function TextConversation() {
       >
         <div className="flex flex-1 items-center justify-center text-center">
           <div className="flex flex-col items-center">
-            <h1 className="mb-4 font-bold text-2xl text-white">
+            <h1 className="mb-4 font-bold text-2xl text-[var(--color-text-primary)]">
               Text with Iris
             </h1>
-            <p className="text-secondary">Start your conversation below...</p>
+            <p className="text-[var(--color-text-secondary)]">
+              Start your conversation below...
+            </p>
           </div>
         </div>
 
@@ -34,7 +36,7 @@ export function TextConversation() {
         >
           <form
             aria-label="Send message to Iris"
-            className="flex min-h-[56px] items-center rounded-2xl border border-teal-700 bg-zinc-900/80 p-2 backdrop-blur-md"
+            className="flex min-h-[56px] items-center rounded-2xl border border-teal-700 bg-[var(--color-nav-background)] p-2 backdrop-blur-md"
           >
             <label className="sr-only" htmlFor="message-input">
               Type your message to Iris
@@ -42,7 +44,7 @@ export function TextConversation() {
             <textarea
               aria-describedby="message-help"
               aria-label="Message input"
-              className="flex-1 resize-none border-none bg-transparent text-white placeholder-secondary outline-none"
+              className="flex-1 resize-none border-none bg-transparent text-[var(--color-text-primary)] placeholder-[var(--color-text-secondary)] outline-none"
               onInput={(e) => {
                 const target = e.target as HTMLTextAreaElement
                 target.style.height = `${TEXTAREA_MIN_HEIGHT}px`
@@ -69,7 +71,10 @@ export function TextConversation() {
               className="flex h-8 w-8 items-center justify-center rounded-full bg-teal-600 transition-all hover:bg-teal-700 active:scale-95"
               type="submit"
             >
-              <SendIcon aria-hidden="true" className="h-6 w-6 text-teal-300" />
+              <SendIcon
+                aria-hidden="true"
+                className="h-6 w-6 text-[var(--color-text-accent)]"
+              />
             </button>
           </form>
         </div>

@@ -48,7 +48,9 @@ export default function Tab({
       <span
         className={[
           'relative grid place-items-center p-1.5',
-          active ? 'text-teal-300' : 'text-zinc-600',
+          active
+            ? 'text-[var(--color-text-accent)]'
+            : 'text-[var(--color-text-muted)]',
         ].join(' ')}
       >
         <motion.span
@@ -63,7 +65,9 @@ export default function Tab({
       <span
         className={[
           'text-center align-middle font-inter font-normal text-xs tracking-normal',
-          active ? 'text-teal-300' : 'text-zinc-600',
+          active
+            ? 'text-[var(--color-text-accent)]'
+            : 'text-[var(--color-text-muted)]',
         ].join(' ')}
         style={{ lineHeight: '14px' }}
       >

@@ -1,8 +1,36 @@
 @import "tailwindcss";
 
-@theme {
+:root {
   --font-inter: "Inter", sans-serif;
   --color-secondary: #9f9fa1;
+
+  /* Dark theme colors (default) */
+  --color-background: #000000;
+  --color-surface: #000000;
+  --color-surface-elevated: rgba(255, 255, 255, 0.05);
+  --color-surface-border: rgba(255, 255, 255, 0.1);
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #9f9fa1;
+  --color-text-accent: #5eead4;
+  --color-text-muted: #71717a;
+  --color-nav-background: rgba(0, 0, 0, 0.8);
+  --color-button-secondary: #27272a;
+  --color-button-secondary-hover: #3f3f46;
+}
+
+/* Light theme overrides */
+.light {
+  --color-background: #ffffff;
+  --color-surface: #ffffff;
+  --color-surface-elevated: rgba(0, 0, 0, 0.05);
+  --color-surface-border: rgba(0, 0, 0, 0.1);
+  --color-text-primary: #000000;
+  --color-text-secondary: #6b7280;
+  --color-text-accent: #0891b2;
+  --color-text-muted: #9ca3af;
+  --color-nav-background: rgba(255, 255, 255, 0.8);
+  --color-button-secondary: #f4f4f5;
+  --color-button-secondary-hover: #e4e4e7;
 }
 
 /* Screen reader only utility class for accessibility */

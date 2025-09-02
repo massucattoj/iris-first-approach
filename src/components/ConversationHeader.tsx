@@ -21,13 +21,13 @@ export function ConversationHeader() {
 
   return (
     <header className="relative mt-[15.5px] flex h-14 w-full items-center p-4">
-      <div className="relative flex h-[36px] items-center rounded-full bg-zinc-900 p-1">
+      <div className="relative flex h-[36px] items-center rounded-full bg-[var(--color-button-secondary)] p-1">
         <motion.div
           animate={{
             x: isVoiceActive ? 0 : TOGGLE_SLIDE_DISTANCE,
           }}
           aria-hidden="true"
-          className="absolute h-7 w-14 rounded-full bg-black py-0.5"
+          className="absolute h-7 w-14 rounded-full bg-[var(--color-background)] py-0.5"
           transition={{
             type: 'spring',
             stiffness: 300,
@@ -44,7 +44,7 @@ export function ConversationHeader() {
         >
           <VoiceIcon
             aria-hidden="true"
-            className={`h-6 w-6 transition-colors ${isVoiceActive ? 'text-teal-300' : 'text-zinc-500'}`}
+            className={`h-6 w-6 transition-colors ${isVoiceActive ? 'text-[var(--color-text-accent)]' : 'text-[var(--color-text-muted)]'}`}
           />
         </button>
         <button
@@ -56,7 +56,7 @@ export function ConversationHeader() {
         >
           <ChatIcon
             aria-hidden="true"
-            className={`h-6 w-6 transition-colors ${isVoiceActive ? 'text-zinc-500' : 'text-teal-300'}`}
+            className={`h-6 w-6 transition-colors ${isVoiceActive ? 'text-[var(--color-text-muted)]' : 'text-[var(--color-text-accent)]'}`}
           />
         </button>
       </div>
@@ -68,12 +68,12 @@ export function ConversationHeader() {
 
       <button
         aria-label="End conversation and return to home"
-        className="ml-auto flex h-[36px] items-center justify-center rounded-full bg-zinc-900 px-5 transition-all hover:bg-zinc-800 active:scale-95"
+        className="ml-auto flex h-[36px] items-center justify-center rounded-full bg-[var(--color-button-secondary)] px-5 transition-all hover:bg-[var(--color-button-secondary-hover)] active:scale-95"
         onClick={() => navigate('/')}
         type="button"
       >
         <span
-          className="text-center align-middle font-inter font-medium text-base text-teal-300 tracking-normal transition-colors"
+          className="text-center align-middle font-inter font-medium text-[var(--color-text-accent)] text-base tracking-normal transition-colors"
           style={{ lineHeight: '14px' }}
         >
           End

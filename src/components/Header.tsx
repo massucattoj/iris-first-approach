@@ -13,6 +13,8 @@ export function Header() {
         return 'Insights'
       case '/explore':
         return 'Explore'
+      case '/settings':
+        return 'Settings'
       case '/chat':
         return 'Chat'
       default:
@@ -24,7 +26,7 @@ export function Header() {
     <header className="mt-[15.5px] flex h-14 items-center justify-between gap-8 p-4">
       <button
         aria-label={`Go to home page - Current page: ${getPageTitle()}`}
-        className="m-0 cursor-pointer border-none bg-transparent p-0 align-middle font-bold font-inter text-2xl text-white leading-none tracking-normal transition-all hover:opacity-80 active:scale-95"
+        className="m-0 cursor-pointer border-none bg-transparent p-0 align-middle font-bold font-inter text-2xl text-[var(--color-text-primary)] leading-none tracking-normal transition-all hover:opacity-80 active:scale-95"
         onClick={() => navigate('/')}
         type="button"
       >
@@ -36,10 +38,13 @@ export function Header() {
         aria-expanded="false"
         aria-haspopup="true"
         aria-label="More options"
-        className="rounded-full p-2 transition-all hover:bg-white/5 active:scale-95"
+        className="rounded-full p-2 transition-all hover:bg-[var(--color-surface-elevated)] active:scale-95"
         type="button"
       >
-        <DotsIcon aria-hidden="true" className="h-6 w-6 text-white/80" />
+        <DotsIcon
+          aria-hidden="true"
+          className="h-6 w-6 text-[var(--color-text-primary)]/80"
+        />
       </button>
     </header>
   )

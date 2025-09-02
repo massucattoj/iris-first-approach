@@ -6,7 +6,7 @@ import { ConversationHeader } from '../components/ConversationHeader'
 
 export function VoiceConversation() {
   return (
-    <div className="flex min-h-dvh flex-col">
+    <div className="flex min-h-dvh flex-col bg-[var(--color-background)]">
       <ConversationHeader />
 
       <motion.main
@@ -34,12 +34,12 @@ export function VoiceConversation() {
           <button
             aria-describedby="mic-help"
             aria-label="Start recording voice message"
-            className="flex h-[56px] w-[88px] items-center justify-center rounded-full bg-zinc-900 transition-all hover:bg-zinc-800 active:scale-95"
+            className="flex h-[56px] w-[88px] items-center justify-center rounded-full bg-[var(--color-button-secondary)] transition-all hover:bg-[var(--color-button-secondary-hover)] active:scale-95"
             type="button"
           >
             <MicrophoneIcon
               aria-hidden="true"
-              className="h-6 w-6 text-teal-300 transition-colors"
+              className="h-6 w-6 text-[var(--color-text-accent)] transition-colors"
             />
           </button>
           <span className="sr-only" id="mic-help">
