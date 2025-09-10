@@ -3,7 +3,7 @@ export function Insights() {
     <div className="flex flex-1 items-center justify-center px-10.5 text-center">
       <div className="flex flex-col items-center">
         <p
-          className="text-center align-middle font-inter font-normal text-base text-secondary tracking-normal"
+          className="text-center align-middle font-inter font-normal text-[var(--color-text-secondary)] text-base tracking-normal"
           style={{ lineHeight: '100%' }}
         >
           Discover meaningful patterns and insights from your
