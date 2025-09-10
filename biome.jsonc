@@ -10,6 +10,12 @@
     "rules": {
       "performance": {
         "noImgElement": "off"
+      },
+      "suspicious": {
+        "noConsole": "off"
+      },
+      "style": {
+        "noMagicNumbers": "off"
       }
     }
   }
