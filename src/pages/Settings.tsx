@@ -1,11 +1,15 @@
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
-import { useTheme } from '../contexts/ThemeContext'
+import { useTheme } from '../components/theme-provider'
 
 const TOGGLE_TRANSLATE_X = 20
 
 export function Settings() {
-  const { theme, toggleTheme, setTheme } = useTheme()
+  const { theme, setTheme } = useTheme()
+
+  const toggleTheme = () => {
+    setTheme(theme === 'light' ? 'dark' : 'light')
+  }
 
   return (
     <motion.div

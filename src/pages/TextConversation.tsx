@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
+import { Button } from '@/components/ui/button'
 import SendIcon from '../assets/send.svg?react'
 import { ConversationHeader } from '../components/ConversationHeader'
 import { MessagesContainer } from '../components/TextConversation/MessagesContainer'
@@ -173,17 +174,18 @@ export function TextConversation() {
               <span className="sr-only" id="message-help">
                 Press Enter to send your message, or click the send button
               </span>
-              <button
+              <Button
                 aria-label="Send message"
-                className="flex h-8 w-8 items-center justify-center rounded-full bg-teal-600 transition-all hover:bg-teal-700 active:scale-95 disabled:cursor-not-allowed disabled:opacity-50"
+                className="h-8 w-8 rounded-full bg-teal-600 hover:bg-teal-700 active:scale-95"
                 disabled={isLoading || !input.trim()}
+                size="icon"
                 type="submit"
               >
                 <SendIcon
                   aria-hidden="true"
                   className="h-6 w-6 text-[var(--color-text-accent)]"
                 />
-              </button>
+              </Button>
             </form>
           </div>
         </div>

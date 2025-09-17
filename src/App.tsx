@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
 import { Layout } from './components/Layout'
-import { ThemeProvider } from './contexts/ThemeContext'
+import { ThemeProvider } from './components/theme-provider'
 import { Explore } from './pages/Explore'
 import { Insights } from './pages/Insights'
 import { Iris } from './pages/Iris'
@@ -10,7 +10,7 @@ import { VoiceConversation } from './pages/VoiceConversation'
 
 function App() {
   return (
-    <ThemeProvider>
+    <ThemeProvider defaultTheme="dark" storageKey="iris-theme">
       <div
         aria-label="Iris AI Conversation App"
         className="flex min-h-dvh flex-col bg-[var(--color-background)]"
