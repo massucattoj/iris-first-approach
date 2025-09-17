@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
+import { Button } from '@/components/ui/button'
 import ChatIcon from '../assets/chat.svg?react'
 import VoiceIcon from '../assets/voice.svg?react'
 import YellowFuzzy from '../assets/yellow-fuzzy.svg?react'
@@ -66,19 +67,17 @@ export function ConversationHeader() {
         <YellowFuzzy aria-hidden="true" className="h-8 w-8" />
       </div>
 
-      <button
+      <Button
         aria-label="End conversation and return to home"
-        className="ml-auto flex h-[36px] items-center justify-center rounded-full bg-[var(--color-button-secondary)] px-5 transition-all hover:bg-[var(--color-button-secondary-hover)] active:scale-95"
+        className="ml-auto h-[36px] rounded-full active:scale-95"
         onClick={() => navigate('/')}
-        type="button"
+        size="sm"
+        variant="secondary"
       >
-        <span
-          className="text-center align-middle font-inter font-medium text-[var(--color-text-accent)] text-base tracking-normal transition-colors"
-          style={{ lineHeight: '14px' }}
-        >
+        <span className="font-inter font-medium text-[var(--color-text-accent)] text-base">
           End
         </span>
-      </button>
+      </Button>
     </header>
   )
 }
