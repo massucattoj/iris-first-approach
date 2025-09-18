@@ -23,7 +23,7 @@ export function Header() {
   }
 
   return (
-    <header className="mt-[15.5px] flex h-14 items-center justify-between gap-8 p-4">
+    <header className="mt-[62px] flex h-14 items-center justify-between gap-8 p-4">
       <button
         aria-label={`Go to home page - Current page: ${getPageTitle()}`}
         className="m-0 cursor-pointer border-none bg-transparent p-0 align-middle font-bold font-inter text-2xl text-[var(--color-text-primary)] leading-none tracking-normal transition-all hover:opacity-80 active:scale-95"
