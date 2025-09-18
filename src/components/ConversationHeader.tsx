@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
+import { Button } from '@/components/ui/button'
 import ChatIcon from '../assets/chat.svg?react'
 import VoiceIcon from '../assets/voice.svg?react'
 import YellowFuzzy from '../assets/yellow-fuzzy.svg?react'
@@ -20,14 +21,14 @@ export function ConversationHeader() {
   }, [location.pathname])
 
   return (
-    <header className="relative mt-[62px] flex h-14 w-full items-center p-4">
-      <div className="relative flex h-[36px] items-center rounded-full bg-zinc-900 p-1">
+    <header className="relative mt-[15.5px] flex h-14 w-full items-center p-4">
+      <div className="relative flex h-[36px] items-center rounded-full bg-[var(--color-button-secondary)] p-1">
         <motion.div
           animate={{
             x: isVoiceActive ? 0 : TOGGLE_SLIDE_DISTANCE,
           }}
           aria-hidden="true"
-          className="absolute h-7 w-14 rounded-full bg-black py-0.5"
+          className="absolute h-7 w-14 rounded-full bg-[var(--color-background)] py-0.5"
           transition={{
             type: 'spring',
             stiffness: 300,
@@ -44,7 +45,7 @@ export function ConversationHeader() {
         >
           <VoiceIcon
             aria-hidden="true"
-            className={`h-6 w-6 transition-colors ${isVoiceActive ? 'text-teal-300' : 'text-zinc-500'}`}
+            className={`h-6 w-6 transition-colors ${isVoiceActive ? 'text-[var(--color-text-accent)]' : 'text-[var(--color-text-muted)]'}`}
           />
         </button>
         <button
@@ -56,7 +57,7 @@ export function ConversationHeader() {
         >
           <ChatIcon
             aria-hidden="true"
-            className={`h-6 w-6 transition-colors ${isVoiceActive ? 'text-zinc-500' : 'text-teal-300'}`}
+            className={`h-6 w-6 transition-colors ${isVoiceActive ? 'text-[var(--color-text-muted)]' : 'text-[var(--color-text-accent)]'}`}
           />
         </button>
       </div>
@@ -66,19 +67,17 @@ export function ConversationHeader() {
         <YellowFuzzy aria-hidden="true" className="h-8 w-8" />
       </div>
 
-      <button
+      <Button
         aria-label="End conversation and return to home"
-        className="ml-auto flex h-[36px] items-center justify-center rounded-full bg-zinc-900 px-5 transition-all hover:bg-zinc-800 active:scale-95"
+        className="ml-auto h-[36px] rounded-full active:scale-95"
         onClick={() => navigate('/')}
-        type="button"
+        size="sm"
+        variant="secondary"
       >
-        <span
-          className="text-center align-middle font-inter font-medium text-base text-teal-300 tracking-normal transition-colors"
-          style={{ lineHeight: '14px' }}
-        >
+        <span className="font-inter font-medium text-[var(--color-text-accent)] text-base">
           End
         </span>
-      </button>
+      </Button>
     </header>
   )
 }
