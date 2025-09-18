@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
+import { Button } from '@/components/ui/button'
+import { Textarea } from '@/components/ui/textarea'
 import SendIcon from '../assets/send.svg?react'
 import { ConversationHeader } from '../components/ConversationHeader'
 import { MessagesContainer } from '../components/TextConversation/MessagesContainer'
@@ -8,10 +10,8 @@ import type { Message } from '../types/message'
 import { sendMessage } from '../utils/openai'
 
 const TEXTAREA_MIN_HEIGHT = 28
-const TEXTAREA_MAX_HEIGHT = 120
-const HEADER_HEIGHT = 72 // 56px height + 15.5px margin
+const TEXTAREA_MAX_HEIGHT = 84 // 3 lines: ~28px per line = 84px (mobile-optimized)
 const INPUT_AREA_HEIGHT = 88 // Reduced from 120px to 88px
-const PERSONA_BAR_HEIGHT = 56 // Height of persona selection bar
 
 export function TextConversation() {
   const [messages, setMessages] = useState<Message[]>([])
@@ -75,13 +75,13 @@ export function TextConversation() {
   }
 
   return (
-    <div className="flex min-h-dvh flex-col bg-[var(--color-background)]">
+    <div className="flex h-dvh flex-col overflow-hidden bg-[var(--color-background)]">
       <ConversationHeader />
 
       <motion.main
         animate={{ opacity: 1, x: 0 }}
         aria-label="Text conversation with Iris"
-        className="relative flex h-full flex-col"
+        className="relative flex min-h-0 flex-1 flex-col"
         exit={{ opacity: 0, x: -20 }}
         initial={{ opacity: 0, x: 20 }}
         transition={{ duration: 0.3, ease: 'easeInOut' }}
@@ -113,35 +113,29 @@ export function TextConversation() {
           </div>
         )}
 
-        {/* Messages Area - Fixed height between header and input */}
-        <div
-          className="overflow-y-auto px-4 pt-4"
-          style={{
-            height: `calc(100vh - ${HEADER_HEIGHT}px - ${INPUT_AREA_HEIGHT}px - ${messages.length === 0 ? PERSONA_BAR_HEIGHT : 0}px)`,
-            minHeight: '200px',
-          }}
-        >
+        {/* Messages Area - Flexible height */}
+        <div className="min-h-0 flex-1 overflow-y-auto px-4 pt-4">
           <MessagesContainer isLoading={isLoading} messages={messages} />
         </div>
 
-        {/* Input Area - Fixed at bottom */}
+        {/* Text Area - Fixed at bottom with proper margin */}
         <div
           className="flex-shrink-0 border-[var(--color-surface-border)] border-t bg-[var(--color-background)] px-4 pt-4 pb-8"
-          style={{ height: `${INPUT_AREA_HEIGHT}px` }}
+          style={{ minHeight: `${INPUT_AREA_HEIGHT}px` }}
         >
           <div className="mx-auto w-full max-w-[361px]">
             <form
               aria-label="Send message to Iris"
-              className="flex min-h-[56px] items-center rounded-2xl border border-teal-700 bg-[var(--color-nav-background)] p-2 backdrop-blur-md"
+              className="flex min-h-[56px] items-center rounded-2xl border border-teal-700 bg-[var(--color-nav-background)] p-2 backdrop-blur-md transition-all focus-within:ring-1 focus-within:ring-teal-500/50 focus-within:ring-offset-0"
               onSubmit={handleSubmit}
             >
               <label className="sr-only" htmlFor="message-input">
                 Type your message to Iris
               </label>
-              <textarea
+              <Textarea
                 aria-describedby="message-help"
                 aria-label="Message input"
-                className="flex-1 resize-none border-none bg-transparent text-[var(--color-text-primary)] placeholder-[var(--color-text-secondary)] outline-none"
+                className="flex-1 resize-none border-none bg-transparent text-[var(--color-text-primary)] placeholder-[var(--color-text-secondary)] shadow-none outline-none ring-0 focus:ring-0 focus-visible:ring-0"
                 disabled={isLoading}
                 id="message-input"
                 onChange={(e) => setInput(e.target.value)}
@@ -162,28 +156,30 @@ export function TextConversation() {
                   minHeight: `${TEXTAREA_MIN_HEIGHT}px`,
                   maxHeight: `${TEXTAREA_MAX_HEIGHT}px`,
                   fontFamily: 'Inter',
-                  fontSize: '14px',
+                  fontSize: '16px', // 16px prevents zoom on iOS
                   lineHeight: '20px',
                   marginLeft: '4px',
                   paddingTop: '4px',
                   paddingBottom: '4px',
+                  WebkitAppearance: 'none', // Remove iOS styling
                 }}
                 value={input}
               />
               <span className="sr-only" id="message-help">
                 Press Enter to send your message, or click the send button
               </span>
-              <button
+              <Button
                 aria-label="Send message"
-                className="flex h-8 w-8 items-center justify-center rounded-full bg-teal-600 transition-all hover:bg-teal-700 active:scale-95 disabled:cursor-not-allowed disabled:opacity-50"
+                className="h-8 w-8 rounded-full bg-teal-600 hover:bg-teal-700 active:scale-95"
                 disabled={isLoading || !input.trim()}
+                size="icon"
                 type="submit"
               >
                 <SendIcon
                   aria-hidden="true"
                   className="h-6 w-6 text-[var(--color-text-accent)]"
                 />
-              </button>
+              </Button>
             </form>
           </div>
         </div>

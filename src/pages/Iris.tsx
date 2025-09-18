@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom'
+import { Button } from '@/components/ui/button'
 import TextIcon from '../assets/text.svg?react'
 import VoiceIcon from '../assets/voice.svg?react'
 import YellowFuzzy from '../assets/yellow-fuzzy.svg?react'
@@ -21,10 +22,11 @@ export function Iris() {
 
       <div className="-translate-x-1/2 fixed bottom-[128px] left-1/2 z-10">
         <div className="flex w-[361px] flex-row items-center justify-center gap-4">
-          <button
+          <Button
             aria-label="Start voice conversation with Iris"
-            className="group flex w-full items-center justify-center gap-2 rounded-full border border-[var(--color-surface-border)] bg-[var(--color-surface-elevated)] px-5 py-3 font-medium text-base shadow-sm backdrop-blur transition hover:bg-[var(--color-surface-elevated)] hover:opacity-80 active:scale-[0.98]"
+            className="flex flex-1 items-center justify-center gap-2 rounded-full border border-[var(--color-surface-border)] bg-[var(--color-surface-elevated)] px-5 py-3 font-medium text-base shadow-sm backdrop-blur transition hover:bg-[var(--color-surface-elevated)] hover:opacity-80 active:scale-[0.98]"
             onClick={() => navigate('/talk')}
+            size="lg"
             type="button"
           >
             <VoiceIcon
@@ -32,18 +34,16 @@ export function Iris() {
               className="h-6 w-6 text-[var(--color-text-primary)]/80"
             />
 
-            <span
-              className="text-center align-middle font-inter font-medium text-[var(--color-text-accent)] text-base tracking-normal"
-              style={{ lineHeight: '14px' }}
-            >
+            <span className="text-center align-middle font-inter font-medium text-[var(--color-text-accent)] text-base leading-[14px] tracking-normal">
               Talk
             </span>
-          </button>
+          </Button>
 
-          <button
+          <Button
             aria-label="Start text conversation with Iris"
-            className="group flex w-full items-center justify-center gap-2 rounded-full border border-[var(--color-surface-border)] bg-[var(--color-surface-elevated)] px-5 py-3 font-medium text-base shadow-sm backdrop-blur transition hover:bg-[var(--color-surface-elevated)] hover:opacity-80 active:scale-[0.98]"
+            className="flex flex-1 items-center justify-center gap-2 rounded-full border border-[var(--color-surface-border)] bg-[var(--color-surface-elevated)] px-5 py-3 font-medium text-base shadow-sm backdrop-blur transition hover:bg-[var(--color-surface-elevated)] hover:opacity-80 active:scale-[0.98]"
             onClick={() => navigate('/text')}
+            size="lg"
             type="button"
           >
             <TextIcon
@@ -51,14 +51,10 @@ export function Iris() {
               className="h-6 w-6 text-[var(--color-text-primary)]/80"
             />
 
-            {/* TODO: Create the Text Conversation page */}
-            <span
-              className="text-center align-middle font-inter font-medium text-[var(--color-text-accent)] text-base tracking-normal"
-              style={{ lineHeight: '14px' }}
-            >
+            <span className="text-center align-middle font-inter font-medium text-[var(--color-text-accent)] text-base leading-[14px] tracking-normal">
               Text
             </span>
-          </button>
+          </Button>
         </div>
       </div>
     </div>

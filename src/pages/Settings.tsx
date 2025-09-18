@@ -1,10 +1,15 @@
 import { motion } from 'framer-motion'
-import { useTheme } from '../contexts/ThemeContext'
+import { Button } from '@/components/ui/button'
+import { useTheme } from '../components/theme-provider'
 
 const TOGGLE_TRANSLATE_X = 20
 
 export function Settings() {
-  const { theme, toggleTheme, setTheme } = useTheme()
+  const { theme, setTheme } = useTheme()
+
+  const toggleTheme = () => {
+    setTheme(theme === 'light' ? 'dark' : 'light')
+  }
 
   return (
     <motion.div
@@ -61,16 +66,16 @@ export function Settings() {
 
             {/* Theme Options */}
             <div className="mt-4 grid grid-cols-2 gap-3">
-              <button
+              <Button
                 aria-label="Switch to light theme"
                 className={[
-                  'flex flex-col items-center rounded-lg border-2 p-3 transition-all',
+                  'flex h-auto flex-col items-center p-3',
                   theme === 'light'
-                    ? 'border-teal-500 bg-[var(--color-surface-elevated)]'
-                    : 'border-[var(--color-surface-border)] bg-[var(--color-surface)] hover:border-[var(--color-text-muted)]',
+                    ? 'border-2 border-primary bg-accent'
+                    : 'border-2',
                 ].join(' ')}
                 onClick={() => setTheme('light')}
-                type="button"
+                variant="outline"
               >
                 <div className="mb-2 h-8 w-12 rounded border border-gray-300 bg-white" />
                 <span className="font-inter text-[var(--color-text-primary)] text-sm">
@@ -79,23 +84,23 @@ export function Settings() {
                 {theme === 'light' && (
                   <motion.div
                     animate={{ scale: 1 }}
-                    className="mt-1 h-2 w-2 rounded-full bg-teal-500"
+                    className="mt-1 h-2 w-2 rounded-full bg-primary"
                     initial={{ scale: 0 }}
                     transition={{ type: 'spring', stiffness: 500, damping: 30 }}
                   />
                 )}
-              </button>
+              </Button>
 
-              <button
+              <Button
                 aria-label="Switch to dark theme"
                 className={[
-                  'flex flex-col items-center rounded-lg border-2 p-3 transition-all',
+                  'flex h-auto flex-col items-center p-3',
                   theme === 'dark'
-                    ? 'border-teal-500 bg-[var(--color-surface-elevated)]'
-                    : 'border-[var(--color-surface-border)] bg-[var(--color-surface)] hover:border-[var(--color-text-muted)]',
+                    ? 'border-2 border-primary bg-accent'
+                    : 'border-2',
                 ].join(' ')}
                 onClick={() => setTheme('dark')}
-                type="button"
+                variant="outline"
               >
                 <div className="mb-2 h-8 w-12 rounded border border-gray-600 bg-gray-900" />
                 <span className="font-inter text-[var(--color-text-primary)] text-sm">
@@ -104,12 +109,12 @@ export function Settings() {
                 {theme === 'dark' && (
                   <motion.div
                     animate={{ scale: 1 }}
-                    className="mt-1 h-2 w-2 rounded-full bg-teal-300"
+                    className="mt-1 h-2 w-2 rounded-full bg-primary"
                     initial={{ scale: 0 }}
                     transition={{ type: 'spring', stiffness: 500, damping: 30 }}
                   />
                 )}
-              </button>
+              </Button>
             </div>
           </div>
         </div>

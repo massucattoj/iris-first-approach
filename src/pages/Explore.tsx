@@ -1,3 +1,5 @@
+import { Button } from '@/components/ui/button'
+
 export function Explore() {
   return (
     <div className="relative flex flex-1 flex-col">
@@ -13,19 +15,16 @@ export function Explore() {
 
       {/* TODO: Add the behavior of explorer button -> Like situations and topics */}
       <div className="-translate-x-1/2 absolute bottom-6 left-1/2">
-        <button
+        <Button
           aria-label="Begin exploring real-life scenarios to build self-awareness"
-          className="flex h-14 w-[361px] items-center justify-center rounded-full bg-[var(--color-button-secondary)] px-8 py-1 transition-all hover:bg-[var(--color-button-secondary-hover)] active:scale-[0.98]"
-          style={{ gap: '8px' }}
-          type="button"
+          className="h-14 w-[361px] rounded-full active:scale-[0.98]"
+          size="lg"
+          variant="secondary"
         >
-          <span
-            className="font-inter font-medium text-[var(--color-text-accent)] text-base tracking-normal"
-            style={{ lineHeight: '14px' }}
-          >
+          <span className="font-inter font-medium text-[var(--color-text-accent)] text-base">
             Start exploring
           </span>
-        </button>
+        </Button>
       </div>
     </div>
   )
